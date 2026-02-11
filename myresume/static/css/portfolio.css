@@ -1,0 +1,211 @@
+/* Portfolio layout – design tokens and components (Ben Nelson–style) */
+:root {
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --dark-900: #0f172a;
+  --dark-800: #1e293b;
+  --dark-700: #334155;
+  --gray-800: #1f2937;
+  --gray-700: #374151;
+  --gray-600: #4b5563;
+  --gray-500: #6b7280;
+  --gray-400: #9ca3af;
+  --gray-300: #d1d5db;
+}
+
+body.portfolio {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--dark-900);
+  color: #e5e7eb;
+}
+
+.portfolio .font-mono {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+.container-main {
+  width: 100%;
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-main { padding-left: 1.5rem; padding-right: 1.5rem; }
+}
+
+.text-accent { color: var(--accent); }
+.bg-accent { background-color: var(--accent); }
+.bg-dark-900 { background-color: var(--dark-900); }
+.bg-dark-800 { background-color: var(--dark-800); }
+.bg-dark-700 { background-color: var(--dark-700); }
+.border-gray-800 { border-color: rgba(31, 41, 55, 0.5); }
+.border-gray-700 { border-color: rgba(55, 65, 81, 0.5); }
+
+/* Buttons */
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: color 0.15s, background-color 0.15s, border-color 0.15s;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: white;
+  border: 1px solid var(--accent);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: white;
+}
+
+.btn-secondary {
+  background-color: var(--dark-700);
+  color: var(--gray-300);
+  border: 1px solid var(--gray-700);
+}
+
+.btn-secondary:hover {
+  background-color: var(--dark-600, #475569);
+  color: white;
+}
+
+/* Link hover */
+.link-hover:hover { color: var(--accent); }
+
+/* Cards */
+.card {
+  display: block;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--gray-700);
+  background-color: var(--dark-800);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s;
+}
+
+.card:hover {
+  border-color: var(--accent);
+}
+
+.card .group:hover .group-hover\:text-accent { color: var(--accent); }
+
+/* Tag pills */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 0.375rem;
+  background-color: var(--dark-700);
+  color: var(--gray-300);
+  border: 1px solid var(--gray-700);
+}
+
+.tag-accent {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: var(--accent);
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
+/* Node animation container – optional background canvas */
+.node-animation-container canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Pixel globe – crisp wireframe look */
+.pixel-globe-container {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* Download shields – crisp HTML/CSS badges (no scaled SVG) */
+.download-shields {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.shield-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.5rem;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.25;
+  color: #1f2937;
+  background-color: #e5e7eb;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.15s, background-color 0.15s, border-color 0.15s;
+}
+
+.shield-badge:hover {
+  color: white;
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+
+.shield-badge-icon {
+  font-size: 0.75rem;
+  opacity: 0.85;
+}
+
+.shield-badge-icon--pdf {
+  color: #dc2626;
+}
+
+.shield-badge:hover .shield-badge-icon--pdf {
+  color: inherit;
+}
+
+.shield-badge-icon--epub {
+  color: #9333ea;
+}
+
+.shield-badge:hover .shield-badge-icon--epub {
+  color: inherit;
+}
+
+.shield-badge-icon--tex {
+  color: #0891b2;
+}
+
+.shield-badge:hover .shield-badge-icon--tex {
+  color: inherit;
+}
+
+.shield-badge-text {
+  letter-spacing: 0.01em;
+}
+
+/* Hide some format icons on small screens (like legacy layout) */
+@media (max-width: 640px) {
+  .download-shields #texIcon,
+  .download-shields #jsonIcon,
+  .download-shields #docxIcon,
+  .download-shields #odtIcon {
+    display: none !important;
+  }
+}

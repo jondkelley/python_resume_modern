@@ -1,0 +1,29 @@
+1. Get the application URL by running these commands:
+
+{{- if eq .Values.service.type "NodePort" }}
+
+  export NODE_PORT=$(kubectl get --namespace {{ .Release.Namespace }} -o jsonpath="{.spec.ports[0].nodePort}" services {{ include "python-resume.fullname" . }})
+  export NODE_IP=$(kubectl get nodes --namespace {{ .Release.Namespace }} -o jsonpath="{.items[0].status.addresses[0].address}")
+  echo "http://$NODE_IP:$NODE_PORT"
+
+  # With minikube, you can also run:
+  #   minikube service {{ include "python-resume.fullname" . }} --url
+
+  # With kind, use the node IP and NodePort from:
+  #   kubectl get svc {{ include "python-resume.fullname" . }}
+
+{{- else if eq .Values.service.type "LoadBalancer" }}
+
+  # Wait for LoadBalancer external IP (may take a minute)
+  kubectl get svc --namespace {{ .Release.Namespace }} {{ include "python-resume.fullname" . }} -w
+
+  # Then open: http://<EXTERNAL-IP>
+
+{{- else }}
+
+  # ClusterIP - use port-forward to access:
+  kubectl port-forward svc/{{ include "python-resume.fullname" . }} {{ .Values.service.port }}:{{ .Values.service.port }} --namespace {{ .Release.Namespace }}
+
+{{- end }}
+
+Resume app is running. Visit the URL above to view the resume.

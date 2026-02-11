@@ -1,0 +1,11 @@
+# Values for running in minikube (NodePort, optional local images)
+service:
+  type: NodePort
+  # nodePort: 30080  # Uncomment to pin NodePort
+
+# If using locally built images and loading into minikube:
+# image:
+#   resume:
+#     pullPolicy: Never
+#   pandoc:
+#     pullPolicy: Never

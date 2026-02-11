@@ -13,6 +13,7 @@ This Git repository serves two purposes:
 * Showcasing a few skills while I'm at it:
   * Docker
   * docker-compose
+  * Helm
   * kubernetes (and sidecars)
   * CI testing
   * Github Actons
@@ -42,6 +43,7 @@ This Git repository serves two purposes:
          * [Run from docker-compose](#run-from-docker-compose)
          * [Kubernetes install](#kubernetes-install)
             * [Install Pod, PVC and Service](#install-pod-pvc-and-service)
+         * [Demo in minikube or kind (Helm)](#demo-in-minikube-or-kind-helm)
          * [Running in minikube](#running-in-minikube)
             * [Install Pod](#install-pod)
             * [Expose Service](#expose-service)
@@ -123,7 +125,70 @@ kubectl create secret generic secret-jonk-resume-app --from-literal=resume-updat
 kubectl apply -f https://raw.githubusercontent.com/jondkelley/python_resume/master/deployments/baremetal/resources.yaml
 ```
 
+### Demo in minikube or kind (Helm)
+
+The recommended way to run a quick demo is with the included **Helm chart**. You can use published images from Docker Hub or build and load images locally.
+
+**Prerequisites:** [Helm 3](https://helm.sh/docs/intro/install/), and either [minikube](https://minikube.sigs.k8s.io/docs/start/) or [kind](https://kind.sigs.k8s.io/docs/user/quick-start/).
+
+#### Option A: Minikube
+
+```bash
+# Start minikube (if not already running)
+minikube start
+
+# Install using published images
+./scripts/helm-install-minikube.sh
+
+# Get the URL and open in browser
+minikube service python-resume --url
+```
+
+To **build and load images locally** (no Docker Hub required):
+
+```bash
+./scripts/helm-install-minikube.sh --build-load
+minikube service python-resume --url
+```
+
+#### Option B: Kind
+
+```bash
+# Create a kind cluster (if you don't have one)
+kind create cluster
+
+# Install using published images
+./scripts/helm-install-kind.sh
+
+# Access via port-forward
+kubectl port-forward svc/python-resume 5001:80
+# Open http://localhost:5001
+```
+
+To **build and load images locally**:
+
+```bash
+./scripts/helm-install-kind.sh --build-load
+kubectl port-forward svc/python-resume 5001:80
+```
+
+#### Helm install (manual)
+
+From the repo root, using the chart directly:
+
+```bash
+# Minikube
+helm upgrade --install python-resume ./helm/python-resume -f helm/python-resume/values-minikube.yaml
+
+# Kind
+helm upgrade --install python-resume ./helm/python-resume -f helm/python-resume/values-kind.yaml
+```
+
+See [helm/README.md](helm/README.md) for more options (custom namespace, LoadBalancer, existing secrets, etc.).
+
 ### Running in minikube
+
+The [Helm method above](#demo-in-minikube-or-kind-helm) is preferred for a one-command demo. Below is the raw `kubectl` approach.
 
 #### Create app secret
 

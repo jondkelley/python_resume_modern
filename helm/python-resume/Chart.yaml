@@ -1,0 +1,13 @@
+apiVersion: v2
+name: python-resume
+description: Flask resume app with Pandoc sidecar - deploy to Kubernetes (minikube, kind, or any cluster)
+type: application
+version: 0.1.0
+appVersion: "1.0"
+keywords:
+  - resume
+  - flask
+  - pandoc
+maintainers:
+  - name: Jonathan Kelley
+    url: https://jon-kelley.com

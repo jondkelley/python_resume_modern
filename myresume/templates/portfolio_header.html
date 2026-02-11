@@ -1,0 +1,44 @@
+<header class="fixed top-0 z-50 w-full border-b border-gray-800/50 bg-dark-900/80 backdrop-blur-md">
+  <nav class="container-main flex h-16 items-center justify-between">
+    <a href="{{ url_for('myresume.home') }}" class="font-mono text-lg font-bold text-white hover:text-accent transition-colors">
+      jonathan<span class="text-accent">.</span>kelley
+    </a>
+    <ul class="hidden items-center gap-8 md:flex">
+      <li><a href="{{ url_for('myresume.home') }}" class="text-sm font-medium transition-colors {{ 'text-accent' if active == 'home' else 'text-gray-300 hover:text-white' }}">Home</a></li>
+      <li><a href="{{ url_for('myresume.home') }}#projects" class="text-sm font-medium transition-colors {{ 'text-accent' if active == 'projects' else 'text-gray-300 hover:text-white' }}">Projects</a></li>
+      <li><a href="{{ url_for('myresume.home') }}#publications" class="text-sm font-medium transition-colors {{ 'text-accent' if active == 'publications' else 'text-gray-300 hover:text-white' }}">Publications</a></li>
+      <li><a href="{{ url_for('myresume.about_page') }}" class="text-sm font-medium transition-colors {{ 'text-accent' if active == 'about' else 'text-gray-300 hover:text-white' }}">About</a></li>
+      <li><a href="{{ url_for('myresume.resume_page') }}" class="text-sm font-medium transition-colors {{ 'text-accent' if active == 'resume' else 'text-gray-300 hover:text-white' }}">Resume</a></li>
+      <li><a href="{{ url_for('myresume.home') }}#contact" class="text-sm font-medium transition-colors {{ 'text-accent' if active == 'contact' else 'text-gray-300 hover:text-white' }}">Contact</a></li>
+    </ul>
+    <button id="mobile-menu-btn" class="flex h-10 w-10 items-center justify-center rounded-lg text-gray-300 hover:bg-dark-700 hover:text-white md:hidden" aria-label="Toggle menu" aria-expanded="false">
+      <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </nav>
+  <div id="mobile-menu" class="hidden border-t border-gray-800/50 bg-dark-900/95 backdrop-blur-md md:hidden">
+    <ul class="container-main flex flex-col py-4">
+      <li><a href="{{ url_for('myresume.home') }}" class="block py-3 text-base font-medium transition-colors {{ 'text-accent' if active == 'home' else 'text-gray-300 hover:text-white' }}">Home</a></li>
+      <li><a href="{{ url_for('myresume.home') }}#projects" class="block py-3 text-base font-medium transition-colors text-gray-300 hover:text-white">Projects</a></li>
+      <li><a href="{{ url_for('myresume.home') }}#publications" class="block py-3 text-base font-medium transition-colors text-gray-300 hover:text-white">Publications</a></li>
+      <li><a href="{{ url_for('myresume.about_page') }}" class="block py-3 text-base font-medium transition-colors {{ 'text-accent' if active == 'about' else 'text-gray-300 hover:text-white' }}">About</a></li>
+      <li><a href="{{ url_for('myresume.resume_page') }}" class="block py-3 text-base font-medium transition-colors {{ 'text-accent' if active == 'resume' else 'text-gray-300 hover:text-white' }}">Resume</a></li>
+      <li><a href="{{ url_for('myresume.home') }}#contact" class="block py-3 text-base font-medium transition-colors text-gray-300 hover:text-white">Contact</a></li>
+    </ul>
+  </div>
+</header>
+<script type="module">
+(function() {
+  var btn = document.getElementById('mobile-menu-btn');
+  var menu = document.getElementById('mobile-menu');
+  var icon = document.getElementById('menu-icon');
+  if (btn && menu && icon) {
+    btn.addEventListener('click', function() {
+      var open = menu.classList.toggle('hidden') === false;
+      btn.setAttribute('aria-expanded', open);
+      icon.setAttribute('d', open ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16');
+    });
+  }
+})();
+</script>

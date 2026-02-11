@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>Resume | Jonathan D Kelley</title>
+  <meta name="description" content="Jonathan D Kelley's resume — SRE, platform engineering, Kubernetes, Python.">
+  <meta name="author" content="Jonathan D Kelley">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { colors: { 'dark-900': '#0f172a', 'dark-800': '#1e293b', 'dark-700': '#334155', 'accent': '#3b82f6' } } } }
+  </script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/portfolio.css') }}">
+</head>
+<body class="portfolio flex min-h-screen flex-col">
+  {% set active = 'resume' %}
+  {% include "portfolio_header.html" %}
+
+  <main class="flex-1 pt-16">
+    <section class="container-main py-16 sm:py-24">
+      <div class="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <h1 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Resume</h1>
+          <p class="mt-2 text-gray-400">{{ resume.profile.tagline if resume.profile.tagline else 'Resume &amp; Portfolio' }}</p>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <a href="{{ url_for('myresume.download_link', filetype='pdf') }}" class="btn-primary">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+            PDF
+          </a>
+          <a href="{{ url_for('myresume.resume_json') }}" class="btn-secondary">JSON</a>
+          <a href="{{ url_for('myresume.download_link', filetype='epub') }}" class="btn-secondary">EPUB</a>
+          <a href="{{ url_for('myresume.download_link', filetype='tex') }}" class="btn-secondary">TEX</a>
+          <a href="{{ url_for('myresume.download_link', filetype='docx') }}" class="btn-secondary">DOCX</a>
+          <a href="{{ url_for('myresume.download_link', filetype='odt') }}" class="btn-secondary">ODT</a>
+        </div>
+      </div>
+
+      <div class="mt-12 rounded-xl border border-gray-700/50 bg-dark-800/30 p-8 sm:p-12">
+        <header class="border-b border-gray-700/50 pb-8">
+          <h2 class="text-2xl font-bold text-white sm:text-3xl">{{ resume.profile.first_name }} {{ resume.profile.middle_name }} {{ resume.profile.last_name }}</h2>
+          <p class="mt-2 text-lg text-accent">{{ resume.profile.tagline if resume.profile.tagline else 'Staff Cloud Platform Engineer' }}</p>
+          <div class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-400">
+            {% if resume.contact_details.email %}<a href="mailto:{{ resume.contact_details.email }}" class="hover:text-accent transition-colors">{{ resume.contact_details.email }}</a>{% endif %}
+            {% if resume.contact_details.website %}<a href="{{ resume.contact_details.website }}" class="hover:text-accent transition-colors">{{ resume.contact_details.website }}</a>{% endif %}
+            {% if resume.contact_details.linkedin %}<a href="{{ resume.contact_details.linkedin }}" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors">linkedin.com/in/jonathandkelley</a>{% endif %}
+            {% if resume.contact_details.keybase %}<a href="{{ resume.contact_details.keybase }}" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors">keybase.io/jondkelley</a>{% endif %}
+          </div>
+        </header>
+
+        <section class="mt-8">
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-500">Summary</h3>
+          <p class="mt-4 text-gray-300 leading-relaxed">{{ resume.profile.biography if resume.profile.biography else 'Proven ability to lead high-risk, cross-functional Kubernetes and platform engineering initiatives.' }}</p>
+        </section>
+
+        <section class="mt-10">
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-500">Experience</h3>
+          <div class="mt-6 space-y-8">
+            {% for job in resume.careers or [] %}
+            <div>
+              <div class="flex flex-wrap items-baseline justify-between gap-2">
+                <h4 class="font-semibold text-white">{{ job.specification }}</h4>
+                <span class="font-mono text-sm text-gray-500">{{ job.start_date | resume_date }} – {{ job.end_date | resume_date }}</span>
+              </div>
+              <p class="text-accent">{{ job.title }}{% if job.location %} · {{ job.location }}{% endif %}</p>
+              <ul class="mt-3 space-y-2">
+                {% for bullet in (job.accomplishments or [])[:6] %}
+                <li class="flex items-start gap-2 text-sm text-gray-300">
+                  <span class="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gray-600"></span>
+                  {{ bullet }}
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+            {% endfor %}
+          </div>
+        </section>
+
+        <section class="mt-10">
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-500">Skills</h3>
+          <div class="mt-6 grid gap-6 sm:grid-cols-2">
+            <div>
+              <h4 class="font-mono text-sm font-medium text-accent">Platform &amp; Infra</h4>
+              <div class="mt-3 flex flex-wrap gap-2">
+                {% for s in (resume.skills_hypervisors or [])[:8] %}<span class="tag">{{ s.title }}</span>{% endfor %}
+                {% if not (resume.skills_hypervisors) %}<span class="tag">Kubernetes</span><span class="tag">Docker</span><span class="tag">Terraform</span>{% endif %}
+              </div>
+            </div>
+            <div>
+              <h4 class="font-mono text-sm font-medium text-accent">DevOps &amp; CI/CD</h4>
+              <div class="mt-3 flex flex-wrap gap-2">
+                {% for s in (resume.skills_ci_cd or resume.skills_devops_tools or [])[:8] %}<span class="tag">{{ s.title }}</span>{% endfor %}
+                {% if not (resume.skills_ci_cd or resume.skills_devops_tools) %}<span class="tag">Jenkins</span><span class="tag">Ansible</span>{% endif %}
+              </div>
+            </div>
+            <div>
+              <h4 class="font-mono text-sm font-medium text-accent">Code &amp; APIs</h4>
+              <div class="mt-3 flex flex-wrap gap-2">
+                {% for s in (resume.skills or [])[:10] %}<span class="tag">{{ s.title }}</span>{% endfor %}
+              </div>
+            </div>
+            <div>
+              <h4 class="font-mono text-sm font-medium text-accent">Tools</h4>
+              <div class="mt-3 flex flex-wrap gap-2">
+                <span class="tag">Git</span>
+                <span class="tag">GitHub Actions</span>
+                {% for s in (resume.skills or [])[10:16] %}<span class="tag">{{ s.title }}</span>{% endfor %}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {% if resume.educations and resume.educations|length > 0 %}
+        <section class="mt-10">
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-500">Education</h3>
+          <div class="mt-4 space-y-4">
+            {% for edu in resume.educations %}
+            <div>
+              <h4 class="font-semibold text-white">{{ edu.title }}</h4>
+              <p class="mt-1 text-sm text-gray-400">{{ edu.specification }}{% if edu.location %} · {{ edu.location }}{% endif %}</p>
+            </div>
+            {% endfor %}
+          </div>
+        </section>
+        {% else %}
+        <section class="mt-10">
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-500">Education</h3>
+          <div class="mt-4">
+            <h4 class="font-semibold text-white">Self-directed study</h4>
+            <p class="mt-1 text-sm text-gray-400">Continuous learning through documentation, courses, and hands-on projects.</p>
+          </div>
+        </section>
+        {% endif %}
+
+        {% if resume.publications and resume.publications|length > 0 %}
+        <section class="mt-10">
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-500">Publications</h3>
+          <ul class="mt-4 space-y-2">
+            {% for pub in resume.publications %}
+            <li class="text-sm text-gray-300">
+              <a href="{{ pub.link }}" target="_blank" rel="noopener noreferrer" class="hover:text-accent">{{ pub.title }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </section>
+        {% endif %}
+      </div>
+    </section>
+  </main>
+
+  {% include "portfolio_footer.html" %}
+</body>
+</html>

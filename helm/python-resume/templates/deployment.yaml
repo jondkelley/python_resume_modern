@@ -1,0 +1,74 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "python-resume.fullname" . }}
+  labels:
+    {{- include "python-resume.labels" . | nindent 4 }}
+    {{- include "python-resume.selectorLabels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "python-resume.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "python-resume.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.securityContext }}
+      securityContext:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      volumes:
+        - name: resume-storage
+          emptyDir: {}
+      containers:
+        - name: resume
+          image: "{{ .Values.image.resume.repository }}:{{ .Values.image.resume.tag }}"
+          imagePullPolicy: {{ .Values.image.resume.pullPolicy }}
+          env:
+            - name: UPDATE_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "python-resume.secretName" . }}
+                  key: {{ .Values.existingSecretKey }}
+          ports:
+            - name: flask
+              containerPort: {{ .Values.service.targetPort }}
+          volumeMounts:
+            - name: resume-storage
+              mountPath: /pandoc
+          {{- with .Values.resources.resume }}
+          resources:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+        - name: pandoc
+          image: "{{ .Values.image.pandoc.repository }}:{{ .Values.image.pandoc.tag }}"
+          imagePullPolicy: {{ .Values.image.pandoc.pullPolicy }}
+          env:
+            - name: MYRESUME_HOST
+              value: "localhost:{{ .Values.service.targetPort }}"
+            - name: UPDATE_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "python-resume.secretName" . }}
+                  key: {{ .Values.existingSecretKey }}
+          volumeMounts:
+            - name: resume-storage
+              mountPath: /pandoc
+          {{- with .Values.resources.pandoc }}
+          resources:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

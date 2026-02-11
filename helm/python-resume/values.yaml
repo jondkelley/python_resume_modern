@@ -1,0 +1,50 @@
+# Default values for python-resume.
+# Override for minikube/kind (NodePort) or production (LoadBalancer/ClusterIP).
+
+replicaCount: 1
+
+image:
+  resume:
+    repository: jondkelley/python_resume
+    tag: latest
+    pullPolicy: IfNotPresent
+  pandoc:
+    repository: jondkelley/pandoc_resume
+    tag: latest
+    pullPolicy: IfNotPresent
+
+# For minikube/kind with locally built images, use:
+#   image.resume.pullPolicy: Never
+#   image.pandoc.pullPolicy: Never
+# and load images into the cluster (see README).
+
+nameOverride: ""
+fullnameOverride: ""
+
+# Security context for the pod (app runs as non-root)
+securityContext:
+  runAsUser: 15000
+  runAsNonRoot: true
+
+# Resume update secret - used for dynamic updates to resume.json at runtime.
+# For demo use the default; for production set via --set resumeUpdateSecret=... or use existingSecret.
+resumeUpdateSecret: "changeme"
+
+# Use an existing secret instead of creating one (e.g. sealed-secrets, external secrets).
+# If set, resumeUpdateSecret is ignored and secret is not created.
+existingSecret: ""
+existingSecretKey: resume-update-secret
+
+service:
+  type: NodePort   # Use NodePort for minikube/kind; LoadBalancer for cloud/bare metal
+  port: 80
+  targetPort: 5001
+  nodePort: null  # Optional: set to a number (e.g. 30080) to fix NodePort for minikube/kind
+
+resources:
+  resume: {}
+  pandoc: {}
+
+nodeSelector: {}
+tolerations: []
+affinity: {}

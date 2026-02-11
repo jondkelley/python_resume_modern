@@ -108,7 +108,40 @@ def home():
     cv = ResumeSingleton.get_instance()
     if not cv.resume:
         return render_template('nojson.html', resume=cv.resume)
-    return render_template('index.html', resume=cv.resume)
+    return render_template('index.html', resume=cv.resume, active='home')
+
+
+@myresume.route('/resume')
+def resume_page():
+    """
+    resume page – full resume layout with download links
+    """
+    cv = ResumeSingleton.get_instance()
+    if not cv.resume:
+        return render_template('nojson.html', resume=cv.resume)
+    return render_template('resume.html', resume=cv.resume, active='resume')
+
+
+@myresume.route('/contact')
+def contact_page():
+    """
+    contact page – email, LinkedIn, Keybase, website
+    """
+    cv = ResumeSingleton.get_instance()
+    if not cv.resume:
+        return render_template('nojson.html', resume=cv.resume)
+    return render_template('contact_portfolio.html', resume=cv.resume, active='contact')
+
+
+@myresume.route('/about')
+def about_page():
+    """
+    about page – story, background timeline, skills sidebar
+    """
+    cv = ResumeSingleton.get_instance()
+    if not cv.resume:
+        return render_template('nojson.html', resume=cv.resume)
+    return render_template('about.html', resume=cv.resume, active='about')
 
 
 @myresume.route('/terminal')

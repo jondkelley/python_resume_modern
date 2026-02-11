@@ -1,0 +1,31 @@
+{# Crisp HTML/CSS badges – no scaled SVG text, sharp at all resolutions #}
+<div class="download-shields flex flex-wrap items-center gap-2">
+  <a href="{{ url_for('myresume.resume_markdown_theme', theme='8') }}" target="_blank" class="shield-badge" aria-label="resume.md">
+    <span class="shield-badge-icon" aria-hidden="true">M↓</span>
+    <span class="shield-badge-text">resume.md</span>
+  </a>
+  <a id="jsonIcon" href="{{ url_for('myresume.resume_json') }}" target="_blank" class="shield-badge" aria-label="resume.json">
+    <span class="shield-badge-icon" aria-hidden="true">{}</span>
+    <span class="shield-badge-text">resume.json</span>
+  </a>
+  <a href="{{ url_for('myresume.download_link', filetype='pdf') }}" target="_blank" class="shield-badge" aria-label="resume.pdf">
+    <span class="shield-badge-icon shield-badge-icon--pdf" aria-hidden="true">PDF</span>
+    <span class="shield-badge-text">resume.pdf</span>
+  </a>
+  <a href="{{ url_for('myresume.download_link', filetype='epub') }}" target="_blank" class="shield-badge" aria-label="resume.epub">
+    <span class="shield-badge-icon shield-badge-icon--epub" aria-hidden="true">e</span>
+    <span class="shield-badge-text">resume.epub</span>
+  </a>
+  <a id="texIcon" href="{{ url_for('myresume.download_link', filetype='tex') }}" target="_blank" class="shield-badge" aria-label="resume.tex">
+    <span class="shield-badge-icon shield-badge-icon--tex" aria-hidden="true">Tχ</span>
+    <span class="shield-badge-text">resume.tex</span>
+  </a>
+  <a id="docxIcon" href="{{ url_for('myresume.download_link', filetype='docx') }}" target="_blank" class="shield-badge" aria-label="resume.docx">
+    <span class="shield-badge-icon" aria-hidden="true">W</span>
+    <span class="shield-badge-text">resume.docx</span>
+  </a>
+  <a id="odtIcon" href="{{ url_for('myresume.download_link', filetype='odt') }}" target="_blank" class="shield-badge" aria-label="resume.odt">
+    <span class="shield-badge-icon" aria-hidden="true">O</span>
+    <span class="shield-badge-text">resume.odt</span>
+  </a>
+</div>
