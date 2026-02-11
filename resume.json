@@ -1,0 +1,551 @@
+{
+  "profile": {
+    "first_name": "Jonathan",
+    "middle_name": "D",
+    "last_name": "Kelley",
+    "tagline": "Staff Cloud Platform Engineer — Kubernetes, platform engineering, and cross-functional delivery under tight operational constraints",
+    "date_of_birth": "1985-05-02",
+    "place_of_birth": "Dallas",
+    "biography": "Proven ability to lead high-risk, cross-functional Kubernetes and platform engineering initiatives, driving alignment and delivering stable outcomes under tight operational constraints.",
+    "current_location": {
+      "street": "",
+      "housenumber": 0,
+      "zipcode": "",
+      "city": "Kalamazoo",
+      "state": "Michigan",
+      "country": "United States",
+      "planet": "Earth"
+    }
+  },
+  "contact_details": {
+    "email": "jonkelley@gmail.com",
+    "phone": "817-999-8200",
+    "skype": "",
+    "website": "https://www.jon-kelley.com/",
+    "keybase": "https://keybase.io/jondkelley",
+    "linkedin": "https://linkedin.com/in/jonathandkelley/"
+  },
+  "educations": [
+    {
+      "title": "HarvardX (edX)",
+      "specification": "Advanced Coursework in Computer Science and Software Engineering",
+      "location": "Online",
+      "level": "Self-Directed Study",
+      "description": "Graduate-level computer science: algorithms, databases, statistics, Python, distributed systems.",
+      "start_date": null,
+      "end_date": null,
+      "completed": true
+    },
+    {
+      "title": "MIT OpenCourseWare",
+      "specification": "Self-Directed Study in Graduate-Level Computer Science",
+      "location": "ocw.mit.edu",
+      "level": "Self-Directed Study",
+      "description": "Introduction to Algorithms (6.006), Operating System Engineering (6.828), Distributed Systems (6.824).",
+      "start_date": null,
+      "end_date": null,
+      "completed": true
+    }
+  ],
+  "careers": [
+    {
+      "title": "Activtrak",
+      "specification": "Staff Cloud Platform Engineer",
+      "location": "Austin, TX",
+      "level": "Full Time",
+      "description": "Lead high-risk, cross-functional Kubernetes and platform engineering initiatives.",
+      "accomplishments": [
+        "Coordinated project to move 150 repositories from CircleCI to Github Actions using a centralized and abstracted YAML input for developer experience.",
+        "Wrote Github actions job viewer we could deploy at the org level since Github Enterprise has no such feature in Golang and React.",
+        "Wrote Kubernetes dashboard in Golang and React to view and troubleshoot all k8s objects 60x faster than using GCP console.",
+        "Designed self-service infrastructure provisioning platform leveraging Pulumi IaC and policy-as-code using GCP APIs, eliminating manual ticket-based provisioning workflows for 80% of cloud resource requests.",
+        "Instituted organization-wide SSL rotation, moving away from Thawte key management onto Google Managed SSL (networking.gke.io/v1 / ManagedCertificate), eliminating unplanned outages and fire drills due to credential expirations.",
+        "Led executive-level quarterly technical briefings synthesizing complex cloud platform KPIs and Apache DevLake into actionable workforce investment decisions for CFO and board-level discussions.",
+        "Architected, designed and deployed Github Slackbot interactive deployment notifications using Github Webhooks to update channels with real-time releases using Pub/sub, Firestore and GCP Cloud Serverless Functions.",
+        "Built extensible ETL framework supporting exports to S3, SCP, and Azure Blob Storage, credited with retaining strategic customers and preserving $5M in ARR.",
+        "Developed Packer-based automation to accelerate VM patch rollouts in GCP, reducing image provisioning time by 60% and tightening patch SLAs.",
+        "Migrated 150+ container repositories from GCR to Artifact Registry using automated Helm pipelines, maintaining 100% uptime during transition.",
+        "Optimized GKE cluster binpacking and vertical pod scaling, cutting $42K/year in compute waste while preserving service-level objectives.",
+        "Replaced legacy static VPN setup with HA Cloud VPN (BGP), enabling dynamic routing and full-mesh VPC connectivity across 11 GCP projects with zero cutover downtime."
+      ],
+      "start_date": "2023-01-01",
+      "end_date": null,
+      "link": "https://activtrak.com"
+    },
+    {
+      "title": "Kzoo Makers",
+      "specification": "CTO, Board Member, Secretary of the Board",
+      "location": "Kalamazoo, MI",
+      "level": "Volunteer",
+      "description": "501(c)(3) non-profit public charity. Board leadership, technology strategy, and member engagement.",
+      "accomplishments": [
+        "Facilitated board meetings by drafting agendas, capturing minutes, and following up on board action items using collaborative document management tools.",
+        "Developed the kzoomakers.org website utilizing HTML, CSS, and content management systems, aligning site architecture with organizational objectives to effectively increase member engagement and growth by 600% achieved via tracking signup metrics.",
+        "Developed an RFID-based authentication platform integrating Python and React to enforce secure access control for on-site premises and hazardous industrial equipment.",
+        "Built automated newsletter distribution system leveraging PHP and robust WordPress plugins to coordinate monthly outreach campaigns for the customer base.",
+        "Maintained comprehensive organizational records through enterprise document management systems, establishing audit-ready compliance for state operational requirements.",
+        "Instituted cybersecurity protocols and standardized digital infrastructure to safeguard member information and uphold operational integrity in accordance with evolving nonprofit requirements.",
+        "Deployed a document workflow solution for legal and compliance documents using automated email notifications and audit trail tracking, integrating with organizational record systems.",
+        "Streamlined meeting coordination processes by implementing automated scheduling and archival solutions, ensuring robust recordkeeping and seamless collaboration among board members."
+      ],
+      "start_date": "2024-02-01",
+      "end_date": null,
+      "link": "https://kzoomakers.org"
+    },
+    {
+      "title": "Mezmo",
+      "specification": "Site Reliability Engineer",
+      "location": "San Francisco, CA",
+      "level": "Full Time",
+      "description": "Platform and observability engineering for telemetry and logging products.",
+      "accomplishments": [
+        "Deployed LinkerD Service Mesh across 70 Kubernetes services to enforce full-path mTLS, meeting FedRAMP in-transit encryption standards and reducing audit remediation scope.",
+        "Participates in regular code reviews and offers suggestions for performance optimization.",
+        "Managed on-prem K8s cluster at Equinox using Kubespray and MetalLB for endpoints management.",
+        "Extended internal DevEx CLI to expose observability endpoints via self-service commands, reducing platform support requests and improving operational independence for N engineering teams.",
+        "Designed and implemented a Flask-based support portal with RBAC and Okta-integrated OIDC, enforcing least-privilege access to Redis and MongoDB workloads.",
+        "Refactored Ansible deployment logic for multi-tenant telemetry ingestion, integrating with CI/CD to support zero-downtime updates across customer-facing observability pipelines."
+      ],
+      "start_date": "2020-06-01",
+      "end_date": "2023-01-01",
+      "link": "https://mezmo.com"
+    },
+    {
+      "title": "Doximity",
+      "specification": "Platform Engineer",
+      "location": "San Francisco, CA",
+      "level": "Full Time",
+      "description": "Greenfield EKS platform and Terraform/Helm-based automation for scalable microservice deployment.",
+      "accomplishments": [
+        "Delivered greenfield EKS platform with Terraform/Helm-based automation, enabling scalable, reproducible microservice deployment with integrated Istio service mesh.",
+        "Refactored monolithic Terraform codebase into modular components with isolated state and Atlantis-managed CI policies, improving deployment reliability and reducing configuration drift.",
+        "Stood up Nexus ECR for handling build artifacts (ruby gems, docker registry) to reduce effects of downtime from upstream artifact providers.",
+        "Participated in pair programming and mentored junior engineers to be world-class contributors in Python and Devops.",
+        "Developed high-fidelity Sensu checks integrated with telemetry pipelines, enabling alerting on latency, saturation, and error-rate anomalies across core services.",
+        "Migrated Jenkins workloads from EC2 fleet to ECS Fargate, reducing CI infrastructure costs and scaling throughput dynamically under variable job loads.",
+        "Expanded Chef test coverage with InSpec and Test Kitchen, enforcing policy compliance and improving audit reliability for deployment workflows."
+      ],
+      "start_date": "2019-05-01",
+      "end_date": "2020-05-01",
+      "link": "https://doximity.com"
+    },
+    {
+      "title": "BoomTown",
+      "specification": "Devops Engineer",
+      "location": "Charleston, SC",
+      "level": "Full Time",
+      "description": "Real estate SaaS platform with 24/7 production operations and CI/CD across TeamCity and Jenkins.",
+      "accomplishments": [
+        "Rotated in 24/7 production on-call for split-platform estate (Windows/Linux); developed and maintained remediation playbooks and autorecovery mechanisms for high-availability operations.",
+        "Managed and extended CI/CD workflows across TeamCity and Jenkins, enabling end-to-end pipeline visibility and gated delivery assurance using PowerShell.",
+        "Refactored monolithic legacy WordPress stack into Docker Compose-based modular containers using Python-Paver, gulp/yarn integrations, and layered PHP testing harnesses.",
+        "Served as SME for AWS service primitives, driving tagging strategy compliance, IAM scoping, and least-cost deployment architecture reviews."
+      ],
+      "start_date": "2018-04-01",
+      "end_date": "2019-05-01",
+      "link": "https://boomtownroi.com"
+    },
+    {
+      "title": "Rackspace",
+      "specification": "Linux Systems Engineer III",
+      "location": "San Antonio, TX",
+      "level": "Full Time",
+      "description": "Cloud Integrations Team / Internal Tools Engineering. Supported internal billing, cloud identity systems, and Rackertools for the world's 2nd largest public cloud.",
+      "accomplishments": [
+        "Migrated configuration management stack from Puppet2 to Puppet3 (PuppetDB + r10k + Hiera), enabling dynamic environment provisioning and policy-conformant module reuse.",
+        "Developed GitOps-based Ansible deployment workflows and firewall rule automation, introducing auditability, version control, and rollback for critical infrastructure ACLs.",
+        "Designed, implemented, and maintained CI tooling using Python SDKs for REST-driven deployment orchestration.",
+        "Created SDKs abstracting deployment APIs, enabling standardized self-service release operations for developers and platform teams.",
+        "Led production cutovers for high-risk identity/authentication infrastructure (multi-node authN clusters, schema-breaking migrations) with zero-impact delivery guarantees.",
+        "Delivered continuous delivery for mission-critical Ruby monolith across dev/stage/prod with integrated release gates and change rollback paths.",
+        "Coordinated with Rackspace Change Advisory Board for ITIL-style governance following ISO/IEC 20000-1 / 27005 to introduce risk categorization for each change.",
+        "Managed security risk with various frameworks including STRIDE (Threat Modeling), DREAD (Security Risk Scoring), NIST Risk Management Framework (RMF) improving security metrics.",
+        "Refactored Jenkins job architecture via Jenkins Job Builder, reducing MTTR from weeks to minutes."
+      ],
+      "start_date": "2011-03-01",
+      "end_date": "2017-10-01",
+      "link": "https://rackspace.com"
+    }
+  ],
+  "skills_hypervisors": [{
+      "title": "AWS ec2",
+      "level": 5,
+      "endorsement": ""
+    },
+    {
+      "title": "XenServer",
+      "level": 5,
+      "endorsement": ""
+    },
+    {
+      "title": "VMWare ESXSI",
+      "level": 5,
+      "endorsement": ""
+    },
+    {
+      "title": "KVM",
+      "level": 5,
+      "endorsement": ""
+    },
+    {
+      "title": "Openstack",
+      "level": 5,
+      "endorsement": ""
+    }
+  ],
+  "skills_devops_tools": [{
+      "title": "Terraform/HCL",
+      "level": 5,
+      "endorsement": ""
+    },
+    {
+      "title": "docker-compose",
+      "level": 5,
+      "endorsement": ""
+    },
+    {
+      "title": "Vagrant",
+      "level": 5,
+      "endorsement": ""
+    },
+    {
+      "title": "Puppet",
+      "level": 5,
+      "endorsement": ""
+    },
+    {
+      "title": "SaltStack",
+      "level": 4,
+      "endorsement": ""
+    },
+    {
+      "title": "Chef",
+      "level": 3,
+      "endorsement": ""
+    }
+  ],
+  "skills_ci_cd": [{
+      "title": "Jenkins",
+      "level": 5,
+      "endorsement": ""
+    },
+    {
+      "title": "Bamboo",
+      "level": 5,
+      "endorsement": ""
+    },
+    {
+      "title": "Teamcity",
+      "level": 4,
+      "endorsement": ""
+    },
+    {
+      "title": "CircleCI",
+      "level": 3,
+      "endorsement": ""
+    },
+    {
+      "title": "Github Actions",
+      "level": 2,
+      "endorsement": ""
+    },
+    {
+      "title": "Gitlab",
+      "level": 2,
+      "endorsement": ""
+    }
+  ],
+  "skills": [{
+      "title": "Python",
+      "level": 5,
+      "endorsement": ""
+    },
+    {
+      "title": "Ansible",
+      "level": 5,
+      "endorsement": ""
+    },
+    {
+      "title": "Kubernetes",
+      "level": 5,
+      "endorsement": ""
+    },
+    {
+      "title": "REST Frameworks",
+      "level": 5,
+      "endorsement": ""
+    },
+    {
+      "title": "HTML(5)",
+      "level": 5,
+      "endorsement": ""
+    },
+    {
+      "title": "CSS(3)",
+      "level": 5,
+      "endorsement": ""
+    },
+    {
+      "title": "Observium",
+      "level": 5,
+      "endorsement": ""
+    },
+    {
+      "title": "MongoDB",
+      "level": 5,
+      "endorsement": ""
+    },
+    {
+      "title": "MySQL",
+      "level": 5,
+      "endorsement": ""
+    },
+    {
+      "title": "Postgres",
+      "level": 5,
+      "endorsement": ""
+    },
+    {
+      "title": "AWS DynamoDB",
+      "level": 5,
+      "endorsement": ""
+    },
+    {
+      "title": "Docker",
+      "level": 5,
+      "endorsement": ""
+    },
+    {
+      "title": "Linux",
+      "level": 5,
+      "endorsement": ""
+    },
+    {
+      "title": "Nginx",
+      "level": 5,
+      "endorsement": ""
+    },
+    {
+      "title": "Apache",
+      "level": 5,
+      "endorsement": ""
+    },
+    {
+      "title": "JSON",
+      "level": 5,
+      "endorsement": ""
+    },
+    {
+      "title": "XML",
+      "level": 5,
+      "endorsement": ""
+    },
+    {
+      "title": "Bootstrap Framework",
+      "level": 5,
+      "endorsement": ""
+    },
+    {
+      "title": "SMTP",
+      "level": 5,
+      "endorsement": ""
+    },
+    {
+      "title": "DNS",
+      "level": 5,
+      "endorsement": ""
+    },
+    {
+      "title": "Wordpress",
+      "level": 5,
+      "endorsement": ""
+    },
+    {
+      "title": "Git (SCM)",
+      "level": 4,
+      "endorsement": ""
+    },
+    {
+      "title": "Postfix",
+      "level": 4,
+      "endorsement": ""
+    },
+    {
+      "title": "Nagios",
+      "level": 4,
+      "endorsement": ""
+    },
+    {
+      "title": "Tomcat",
+      "level": 4,
+      "endorsement": ""
+    },
+    {
+      "title": "ElasticSearch",
+      "level": 4,
+      "endorsement": ""
+    },
+    {
+      "title": "Redis",
+      "level": 4,
+      "endorsement": ""
+    },
+    {
+      "title": "Zabbix",
+      "level": 4,
+      "endorsement": ""
+    },
+    {
+      "title": "Networking",
+      "level": 4,
+      "endorsement": ""
+    },
+    {
+      "title": "Ruby",
+      "level": 3,
+      "endorsement": ""
+    },
+    {
+      "title": "Sensu",
+      "level": 3,
+      "endorsement": ""
+    },
+    {
+      "title": "PHP",
+      "level": 3,
+      "endorsement": ""
+    },
+    {
+      "title": "JQuery",
+      "level": 3,
+      "endorsement": ""
+    },
+    {
+      "title": "C/C++",
+      "level": 2,
+      "endorsement": ""
+    },
+    {
+      "title": "Java",
+      "level": 2,
+      "endorsement": ""
+    },
+    {
+      "title": "Golang",
+      "level": 2,
+      "endorsement": ""
+    },
+    {
+      "title": "Oracle",
+      "level": 2,
+      "endorsement": ""
+    },
+    {
+      "title": "Javascript",
+      "level": 2,
+      "endorsement": ""
+    }
+  ],
+  "languages": [{
+    "title": "English",
+    "level": 5,
+    "endorsement": "Daily use"
+  }],
+  "tools": [],
+  "interests": [],
+  "publications": [{
+      "title": "Building my last resume, ever, in Kubernetes.",
+      "image": "https://i.imgur.com/QPqUbnW.png",
+      "tags": "#resume #python #flask #pandoc #kubernetes #sidecar #docker-compose",
+      "link": "https://www.linkedin.com/pulse/building-my-last-resume-ever-jonathan-kelley/",
+      "slug": "building-my-last-resume-ever",
+      "description": "An article about this website, my resume!"
+    }, {
+      "title": "Reconnecting after Postgres failover, introductory guide for application developers.",
+      "image": "https://i.imgur.com/WtR5iHd.png",
+      "tags": "#posgres #python #failover",
+      "link": "https://www.linkedin.com/pulse/reconnecting-after-postgres-failover-guide-developer-jonathan-kelley/",
+      "slug": "reconnecting-after-postgres-failover-guide",
+      "description": "A brief article targeted at application developers on how to use reconnection based connection strings using libpq."
+    },
+    {
+      "title": "Error Handling from backends to the frontend!",
+      "image": "https://i.imgur.com/b8sDiqi.jpg",
+      "tags": "#exceptions #stacktrace #frontend #backend",
+      "link": "https://www.linkedin.com/pulse/error-handling-tips-from-backend-your-frontend-jonathan-kelley/",
+      "slug": "error-handling-tips-from-backend-your-frontend",
+      "description": "The history about error handling in computing, and how a modern developer can handle frontend and backend errors better."
+    },
+    {
+      "title": "How to design subnets the right way",
+      "image": "https://i.imgur.com/Dp1BRVR.png",
+      "tags": "#subnet #networking #vpc #vlan #dnat #snat",
+      "link": "https://www.linkedin.com/pulse/how-design-subnets-right-way-jonathan-kelley/",
+      "slug": "how-design-subnets-right-way",
+      "description": "Regardless if you are running networks in a physical datacenter or across VPCs in the cloud, you only get one chance. Learn how to do it right the first time, every time."
+    }
+  ],
+  "projects": [{
+      "title": "demo-jenkins-config-as-code",
+      "description": "A showcase of Jenkins configurations and job creation out of the box. Using groovy and the configuration as code plugin, you can create fully viable Jenkins instances on docker.",
+      "tagline": "Jenkins configurations and job creation right out of the box.",
+      "tags": "Jenkins, Groovy, Configuration-as-code",
+      "link": "https://github.com/jondkelley/demo-jenkins-config-as-code"
+    }, {
+      "title": "python_resume",
+      "description": "A showcase of Python/Flask/Jinja2/HTML(5)/Bootstrap/JQuery used to both generate jon-kelley.com and my hardcopy resume.",
+      "tagline": "The backend code for this website!",
+      "tags": "Python, Flask, Bootstrap, Jinja2, Resume",
+      "link": "https://github.com/jondkelley/python_resume"
+    },
+    {
+      "title": "logdna_line_export_cli",
+      "description": "This command will recursively fetch all logs from the logdna export API. This is useful to get logs beyond the 10,000 line limit as the API does not natively provide pagination.",
+      "tagline": "A paginator for LogDNA log export",
+      "tags": "Python, Recursion, Pagination",
+      "link": "https://github.com/jondkelley/logdna_line_export_cli"
+    },
+    {
+      "title": "rebrow_modernized",
+      "description": "Built for the Python developer who needs to look into a Redis store. Allows for inspection and deletion of keys and follows PubSub messages. Also displays some runtime and configuration information.",
+      "tagline": "Redis \"workbench\" style tool in Python/Flask.",
+      "tags": "Python, Flask, Bootstrap, Redis",
+      "link": "https://github.com/jondkelley/rebrow-modernized"
+    },
+    {
+      "title": "carphunter",
+      "description": "Simple tool to locate Cisco IP/ARP and display results. Useful for small to medium datacenters (1-100 network devices)",
+      "tagline": "A ARP cache tool for multi-device CISCO newtorks and search tool.",
+      "tags": "Python, Flask, Bootstrap, Redis",
+      "link": "https://github.com/jondkelley/carphunter"
+    },
+    {
+      "title": "zabbix_api_monitor",
+      "description": "This was created to monitor HTTP / REST Endpoints under Zabbix.",
+      "tagline": "A monitoring plugin for Zabbix.",
+      "tags": "Python, REST, Monitoring, Zabbix, HTTP",
+      "link": "https://github.com/jonkelleyatrackspace/zabbix_url_monitor"
+    },
+    {
+      "title": "canakit1104-api",
+      "description": "This was created to expose a REST API for a relay board microcontroller so we could build light-based alerting systems while at Rackspace.",
+      "tagline": "REST API to drive electronic relays.",
+      "tags": "Python, REST, Monitoring, Electronics, Relay",
+      "link": "https://github.com/jonkelleyatrackspace/canakit1104-api"
+    },
+    {
+      "title": "testVapi",
+      "description": "Based on the python behave features this project emulates a cucumber style syntax to run HTTP API tests and is able to forward the messages to ELK stack. This uses a language called Gherkin to make plain-english QA testing a breeze.",
+      "tagline": "Creative python suite which runs QA tests using plain English syntax.",
+      "tags": "Python, Elk, Behave, Cucumber, Gherkin",
+      "link": "https://github.com/jonkelleyatrackspace/testvapi"
+    },
+    {
+      "title": "vagrantfile-skel",
+      "description": "I made this repo because I keep encountering quick environments setup / breakfix I need from time to time.",
+      "tagline": "Common Vagrantfiles I tend to be using",
+      "tags": null,
+      "link": "https://github.com/jondkelley/vagrantfile-skel"
+    }
+  ]
+}

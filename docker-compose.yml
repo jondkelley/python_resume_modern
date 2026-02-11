@@ -1,0 +1,42 @@
+services:
+  resume2:
+    restart: unless-stopped
+    environment:
+      - UPDATE_SECRET=changeme
+    build: .
+    container_name: resume2
+    ports:
+      - 5001:5001
+    volumes:
+      # the json and jinja2 volumes overload what the Dockerfile inserts on build
+      # to allow for local modifications and real-time development
+      - ./resume.json:/resume/resume.json
+      - ./resume.md.jinja2:/resume/resume.md.jinja2
+      - appvolume:/pandoc
+      #- app-volume:/pandoc:Z ## these types of volumes don't work with secured containers
+    networks:
+      - resume_net
+  pandoc2:
+    platform: linux/amd64
+    restart: unless-stopped
+    environment:
+      - MYRESUME_HOST=resume2:5001
+      - UPDATE_SECRET=changeme
+    build:
+      context: pandoc-sidecar
+      dockerfile: Dockerfile
+      platforms:
+        - linux/amd64
+    container_name: pandoc2
+    volumes:
+      - appvolume:/pandoc
+      #- app-volume:/pandoc:Z ## these types of volumes don't work with secured containers
+    networks:
+      - resume_net
+
+volumes:
+  appvolume:
+
+networks:
+  resume_net:
+    driver: bridge

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="content-script-type" content="text/javascript" />
+		<meta http-equiv="content-style-type" content="text/css" />
+		<meta http-equiv="content-language" content="nl" />
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+		<meta name="author" content="Jonathan D Kelley" />	
+		<meta name="description" content="Jonathan D. Kelley is an amazing SRE, Linux Systems Engineer, Kubernetes Expert, Python developer and web designer." />
+		<meta name="keywords" content="Jon Kelley, Jonathan D Kelley, Interactive Resume, Python programmer, Rackspace, Jon_K, Web developer, Startup, Interactive CV, Resume, CV, Rackspace, HRMatches" />
+		<meta name="robots" content="index, follow" />
+		<meta name="revisit-after" content="14 days" />
+			
+		<title>Jonathan D Kelley - Site Reliability Engineer - Resume</title>
+		
+		<!-- Bootstrap core CSS -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,600,700" rel="stylesheet" type="text/css" />
+		<link href="{{ url_for('static', filename = 'css/bootstrap.min.css') }}" rel="stylesheet" />
+		<link href="{{ url_for('static', filename = 'css/style.css') }}" rel="stylesheet" />
+		<link href="{{ url_for('static', filename = 'css/github-calendar-responsive.css') }}" rel="stylesheet" />
+
+		<link rel="shortcut icon" href="{{ url_for('static', filename = 'images/favicon.ico') }}" type="image/x-icon" />
+		<link rel="icon" href="{{ url_for('static', filename = 'images/favicon.ico') }}" type="image/x-icon" />
+		
+		<!--[if lt IE 9]>
+			<script src="<?= VIEW_PATH; ?>js/html5shiv.js"></script>
+			<script src="<?= VIEW_PATH; ?>js/respond.min.js"></script>
+		<![endif]-->
+				
+		<!-- Begin Inspectlet Asynchronous Code -->
+		<script type="text/javascript">
+		(function() {
+		window.__insp = window.__insp || [];
+		__insp.push(['wid', 272811799]);
+		var ldinsp = function(){
+		if(typeof window.__inspld != "undefined") return; window.__inspld = 1; var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = "inspsync"; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js?wid=272811799&r=' + Math.floor(new Date().getTime()/3600000); var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); };
+		setTimeout(ldinsp, 0);
+		})();
+		</script>
+		<!-- End Inspectlet Asynchronous Code -->
+
+		<!-- Include the github contributions stuff. -->
+		<script
+		  src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js">
+		</script>
+	</head>
+	<body data-spy="scroll" data-target="#navbar-example">
+			<!--- Download shields --->
+			{% include "index-download-shields.html" %}
+		<div id="top" class="jumbotron crtflicker" style="height: 100vh;" data-src="/static/images/birthday_animation.gif" data-position="center center">
+			<div class="container">
+
+				<h1 class="glitch" data-text="{{ resume['profile']['first_name'] }} {{ resume['profile']['middle_name'] }} {{ resume['profile']['last_name'] }}">{{ resume['profile']['first_name'] }} {{ resume['profile']['middle_name'] }} {{ resume['profile']['last_name'] }}</h1>
+				<p class="lead">Resume &amp; Portfolio</p>
+			</div>
+			
+			<div class="overlay"></div>
+			
+			<a href="#profile" class="scroll-down">	
+				<span class="glyphicon glyphicon-hand-down"></span>
+			</a>
+		</div>
+
+		<nav class="navbar navbar-default" id="navbar-example" role="navigation">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#profile">Profile</a></li>
+					<li><a href="#experiences">Experiences</a></li>
+					<li><a href="#abilities">Abilities</a></li>
+					<!-- <?php /* <li><a href="#interests">Interests</a></li> */ ?> -->
+					<li><a href="#projects">Projects</a></li>
+					<li><a href="#publications">Publications</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</nav>
+		
+		<div class="background-white">
+			<div id="profile" class="container">
+				{% include "profile.html" %}
+			</div>	
+		</div>	
+		
+		<div id="experiences" class="container">
+			{% include "experiences.html" %}
+		</div>
+
+		<div class="background-white">
+			<div id="abilities" class="container">
+			{% include "abilities.html" %}
+			</div>
+		</div>
+		
+<!-- 		<div id="interests" class="container">
+			{% include "interests.html" %}
+		</div> -->
+		
+		<div id="projects" class="container">
+			{% include "projects.html" %}
+		</div>
+
+		<div class="background-white">
+			<div id="publications" class="container">
+			{% include "publications.html" %}
+			</div>
+		</div>
+		
+		<div class="background-gray">
+			<div id="contact" class="container">
+				{% include "contact.html" %}
+			</div>
+		</div>
+		
+		{% include "upgrade.html" %}
+
+		<!-- Bootstrap core JavaScript -->
+		<script type="text/javascript" src="{{ url_for('static', filename = 'js/console.js') }}"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename = 'js/script.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename = 'js/bootstrap.min.js') }}"></script>
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-2NJZMB1122"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'G-2NJZMB1122');
+		</script>
+
+		<!-- Accordian for expanded skills -->
+		<!-- http://jsfiddle.net/subhranild/u5d35La7/1/ -->
+		<script>
+		$(document).ready(function(){
+		     $('.accordion-section-title').click(function(e){
+		         var currentAttrvalue = $(this).attr('href');
+		         if($(e.target).is('.active')){
+		             $(this).removeClass('active');
+		             $('.accordion-section-content:visible').slideUp(300);
+		         } else {
+		             $('.accordion-section-title').removeClass('active').filter(this).addClass('active');
+		             $('.accordion-section-content').slideUp(300).filter(currentAttrvalue).slideDown(300);
+		         }
+		     });
+		 });
+		</script>
+
+		<!--- Hide terminal on monbile --->
+		<script>
+		    var mobile = (/iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));  
+		    if (mobile) {
+			     document.getElementById("terminalIframe").style.display = "none"
+			     document.getElementById("odtIcon").style.display = "none"
+			     document.getElementById("texIcon").style.display = "none"
+			     document.getElementById("jsonIcon").style.display = "none"
+			     document.getElementById("docxIcon").style.display = "none"
+			}
+		</script>
+	</body>
+</html>
