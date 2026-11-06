@@ -23,6 +23,7 @@ import subprocess
 import urllib.request
 
 myresume = Blueprint('myresume', __name__)
+PDF_THEMES = ('ember', 'classic', 'engineeringclassic', 'engineeringresumes', 'harvard', 'ink', 'moderncv', 'opal', 'sb2nov')  # RenderCV's; keep in sync with render.sh
 
 
 class ResumeSingleton:
@@ -247,7 +248,11 @@ def download_link(filetype=None):
     """
     sourcefile_path = '/pandoc/'
     name = 'jonathan_d_kelley'
-    sourcefile = f'{sourcefile_path}resume.{filetype}'
+    theme = request.args.get('theme')
+    if filetype == 'pdf' and theme in PDF_THEMES and theme != 'ember':   # ember is resume.pdf
+        sourcefile = f'{sourcefile_path}resume-{theme}.pdf'
+    else:
+        sourcefile = f'{sourcefile_path}resume.{filetype}'
 
     if not path.exists(sourcefile):
         _, _, available_files = next(walk(sourcefile_path))
