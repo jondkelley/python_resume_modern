@@ -4,9 +4,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Install test requirements
-        run: pip3 install requests pytest==6.2.3 pytest-docker-compose==3.2.1
+        run: pip3 install requests pytest pytest-docker-compose==3.2.1
       - name: Run tests
         run: make test
         env:

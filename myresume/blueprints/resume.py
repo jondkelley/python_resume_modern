@@ -3,7 +3,7 @@
 # Description : Interactive online resume for jon-kelley.com
 
 
-from flask import Blueprint, Flask, request, session, g, redirect, url_for, abort, render_template, flash, Markup, Response, json, make_response, send_file
+from flask import Blueprint, Flask, request, session, g, redirect, url_for, abort, render_template, flash, Response, json, make_response, send_file
 from flask import current_app as app
 from json import load as json_load
 from json import dumps as json_dumps
