@@ -1,0 +1,20 @@
+# fly.toml app configuration file generated for jon-kelley-resume on 2026-11-05T23:22:16-05:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'jon-kelley-resume'
+primary_region = 'ord'
+
+[build]
+[http_service]
+  internal_port = 5001
+  force_https = true
+  auto_stop_machines = 'off'
+  min_machines_running = 1
+
+[[vm]]
+  memory = '512mb'
+  cpu_kind = 'shared'
+  cpus = 1
+  memory_mb = 512

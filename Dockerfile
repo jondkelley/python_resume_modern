@@ -1,23 +1,18 @@
-FROM python:3.14-alpine
+FROM python:3.13-slim
 
-MAINTAINER Jonathan Kelley <jonk@omg.lol>
+RUN apt-get update && apt-get install -y --no-install-recommends pandoc curl \
+    && rm -rf /var/lib/apt/lists/*
+RUN pip install --no-cache-dir "rendercv[full]>=2.8"
 
-ENV DEBIAN_FRONTEND noninteractive
-
-#ADD requirements.txt /
-#RUN pip install -r /requirements.txt
 ADD . /app/
-
 WORKDIR /app
-
 RUN pip install --no-cache-dir .
 
-COPY ./resume.json /resume/resume.json
-COPY ./resume.md.jinja2 /resume/resume.md.jinja2
-
-RUN addgroup -g 15000 -S resume && adduser -u 15000 -S resume -G resume
-RUN mkdir -p /pandoc && chmod 755 /pandoc/ && chown 15000:15000 /pandoc
+RUN mkdir -p /resume /pandoc \
+    && cp resume.json resume.md.jinja2 /resume/ \
+    && groupadd -g 15000 resume && useradd -u 15000 -g resume -m resume \
+    && chown 15000:15000 /pandoc
 USER resume
 
 EXPOSE 5001
-ENTRYPOINT ["myresume"]
+ENTRYPOINT ["/app/entrypoint.sh"]

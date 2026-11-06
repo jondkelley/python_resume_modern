@@ -19,6 +19,7 @@ import markdown
 import yaml
 from myresume.sharedlib.rendercv import to_rendercv
 import mimetypes
+import subprocess
 import urllib.request
 
 myresume = Blueprint('myresume', __name__)
@@ -48,7 +49,7 @@ class ResumeSingleton:
         """
         return self.resume
 
-    def refresh_resume(self, url):
+    def refresh_resume(self, url=None):
         """
         refresh resume off github content
         """
@@ -90,6 +91,7 @@ def update():
     if secret == config_secret:
         cv = ResumeSingleton.get_instance()
         cv.refresh_resume(resume_url)
+        subprocess.Popen(['/app/render.sh'])  # re-render downloads with the new content
         response = {"status": "updated", "resume": cv.resume}
         json = app.make_response(json_dumps(response, indent=5))
         json.mimetype = "text/plain"
