@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <title>Jonathan D Kelley | Resume &amp; Portfolio</title>
-  <meta name="description" content="{{ resume.profile.biography if resume and resume.profile else 'Jonathan D. Kelley — SRE, Linux Systems Engineer, Kubernetes, Python, interactive resume.' }}">
+  <meta name="description" content="{{ resume.profile.biography if resume and resume.profile else 'Jonathan D. Kelley -- SRE, Linux Systems Engineer, Kubernetes, Python, interactive resume.' }}">
   <meta name="author" content="Jonathan D Kelley">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -41,7 +41,7 @@
               {{ resume.profile.first_name }} {{ resume.profile.middle_name }} {{ resume.profile.last_name }}
             </h1>
             <p class="mt-4 text-xl text-gray-300 sm:text-2xl lg:text-3xl">
-              Devops Focused<span class="text-gray-500"> / </span><span class="text-accent">{% if resume.profile.tagline %}{{ (resume.profile.tagline.split('—')[0] if '—' in resume.profile.tagline else resume.profile.tagline) | trim }}{% else %}SRE &amp; Platform{% endif %}</span>
+              Devops Focused<span class="text-gray-500"> / </span><span class="text-accent">{% if resume.profile.tagline %}{{ (resume.profile.tagline.split(' -- ')[0] if ' -- ' in resume.profile.tagline else resume.profile.tagline) | trim }}{% else %}SRE &amp; Platform{% endif %}</span>
             </p>
             <p class="mt-6 max-w-xl text-lg text-gray-400 leading-relaxed">
               {{ resume.profile.biography if resume.profile.biography else 'I am a 14 year internet technology veteran with a passion for devops and site reliability. I got my start in the late 1990s in highschool over IRC and designing web pages on Redhat Linux 9 (Shrike). I consider myself an expert at Linux, Kubernetes, GCP, Containers, CI-CD, devops glue and all the things in between.' }}

@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <title>About | {% if resume and resume.get('profile') %}{{ resume.profile.first_name }} {{ resume.profile.last_name }}{% else %}Jonathan D Kelley{% endif %}</title>
-  <meta name="description" content="{{ resume.profile.biography if resume and resume.get('profile') else 'Staff Cloud Platform Engineer — Kubernetes, platform engineering, and cross-functional delivery.' }}">
+  <meta name="description" content="{{ resume.profile.biography if resume and resume.get('profile') else 'Staff Cloud Platform Engineer -- Kubernetes, platform engineering, and cross-functional delivery.' }}">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -38,13 +38,13 @@
           <h1 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">About Me</h1>
           <div class="mt-8 space-y-6 text-gray-300 leading-relaxed">
             <p>
-              I'm {% if resume and resume.get('profile') %}{{ resume.profile.first_name }}{% else %}Jonathan{% endif %} — a Staff Cloud Platform Engineer who got here the long way.
+              I'm {% if resume and resume.get('profile') %}{{ resume.profile.first_name }}{% else %}Jonathan{% endif %} -- a Staff Cloud Platform Engineer who got here the long way.
               It started in <strong class="text-white">1999</strong>, on a hand-me-down PC running Linux, back when
               <strong class="text-white">telnet</strong> was still socially acceptable and "the cloud" was something you looked at out the window.
             </p>
             <p>
               I learned to break things, fix them, and automate the boring parts. By the <strong class="text-white">mid-2000s</strong>
-              I was writing <strong class="text-white">PERL</strong> and <strong class="text-white">PHP</strong> — cron jobs, web scripts,
+              I was writing <strong class="text-white">PERL</strong> and <strong class="text-white">PHP</strong> -- cron jobs, web scripts,
               and the kind of glue code that keeps systems talking to each other. That led to real sysadmin work: patch management,
               config drift, and the first taste of "if I have to do this twice, I'm scripting it."
             </p>
@@ -52,7 +52,7 @@
               From there it was a straight line to configuration management (Puppet, then Ansible), CI/CD (Jenkins, then GitHub Actions),
               and eventually <strong class="text-white">Kubernetes</strong> and platform engineering. I've run production at scale at
               Rackspace, built greenfield EKS and service mesh at Doximity, shipped LinkerD and FedRAMP-grade mTLS at Mezmo, and now lead
-              cross-functional Kubernetes and platform initiatives at Activtrak — Pulumi, GKE, Helm, and the rest of the modern stack.
+              cross-functional Kubernetes and platform initiatives at Activtrak -- Pulumi, GKE, Helm, and the rest of the modern stack.
             </p>
             <p>
               I still believe in understanding the full stack: not just the apps, but the infrastructure they run on, the pipelines that
