@@ -10,7 +10,7 @@ ADD . /app/
 
 WORKDIR /app
 
-RUN python3 setup.py install
+RUN pip install --no-cache-dir .
 
 COPY ./resume.json /resume/resume.json
 COPY ./resume.md.jinja2 /resume/resume.md.jinja2
