@@ -33,6 +33,18 @@ services:
       #- app-volume:/pandoc:Z ## these types of volumes don't work with secured containers
     networks:
       - resume_net
+  rendercv2:
+    restart: unless-stopped
+    environment:
+      - MYRESUME_HOST=resume2:5001
+    build:
+      context: rendercv-sidecar
+      dockerfile: Dockerfile
+    container_name: rendercv2
+    volumes:
+      - appvolume:/pandoc
+    networks:
+      - resume_net
 
 volumes:
   appvolume:

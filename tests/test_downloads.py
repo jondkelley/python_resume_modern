@@ -18,7 +18,7 @@ class TestDownloads():
         request_session, api_url = wait_for_flask
         r = request_session.get(f'{api_url}pandoc/resume.pdf')
         assert r.status_code == 200
-        assert '%PDF-1.5' in r.text
+        assert '%PDF-' in r.text
 
     def test_pandoc_epub(self, wait_for_flask):
         request_session, api_url = wait_for_flask

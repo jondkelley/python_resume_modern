@@ -60,6 +60,19 @@ spec:
           resources:
             {{- toYaml . | nindent 12 }}
           {{- end }}
+        - name: rendercv
+          image: "{{ .Values.image.rendercv.repository }}:{{ .Values.image.rendercv.tag }}"
+          imagePullPolicy: {{ .Values.image.rendercv.pullPolicy }}
+          env:
+            - name: MYRESUME_HOST
+              value: "localhost:{{ .Values.service.targetPort }}"
+          volumeMounts:
+            - name: resume-storage
+              mountPath: /pandoc
+          {{- with .Values.resources.rendercv }}
+          resources:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

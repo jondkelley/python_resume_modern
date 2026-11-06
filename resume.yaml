@@ -1,0 +1,170 @@
+cv:
+  name: Jonathan D Kelley
+  headline: Staff Cloud Platform Engineer — Kubernetes, platform engineering, and cross-functional delivery
+    under tight operational constraints
+  location: Kalamazoo, Michigan
+  email: jonkelley@gmail.com
+  website: https://www.jon-kelley.com/
+  social_networks:
+  - network: LinkedIn
+    username: jonathandkelley
+  custom_connections:
+  - fontawesome_icon: key
+    placeholder: Keybase
+    url: https://keybase.io/jondkelley
+  sections:
+    Summary:
+    - I am a 14 year internet technology veteran with a passion for devops and site reliability. I got
+      my start in the late 1990s in highschool over IRC and designing web pages on Redhat Linux 9 (Shrike).
+      I consider myself an expert at Linux, Kubernetes, GCP, Containers, CI-CD, devops glue and all the
+      things in between.
+    Experience:
+    - company: Activtrak
+      position: Staff Cloud Platform Engineer
+      location: Austin, TX
+      start_date: 2023-01
+      end_date: present
+      highlights:
+      - Coordinated project to move 150 repositories from CircleCI to Github Actions using a centralized
+        and abstracted YAML input for developer experience.
+      - Wrote Github actions job viewer we could deploy at the org level since Github Enterprise has no
+        such feature in Golang and React.
+      - Wrote Kubernetes dashboard in Golang and React to view and troubleshoot all k8s objects 60x faster
+        than using GCP console.
+      - Designed self-service infrastructure provisioning platform leveraging Pulumi IaC and policy-as-code
+        using GCP APIs, eliminating manual ticket-based provisioning workflows for 80% of cloud resource
+        requests.
+      - Instituted organization-wide SSL rotation, moving away from Thawte key management onto Google
+        Managed SSL (networking.gke.io/v1 / ManagedCertificate), eliminating unplanned outages and fire
+        drills due to credential expirations.
+    - company: Kzoo Makers
+      position: CTO, Board Member, Secretary of the Board
+      location: Kalamazoo, MI
+      start_date: 2024-02
+      end_date: present
+      highlights:
+      - Facilitated board meetings by drafting agendas, capturing minutes, and following up on board action
+        items using collaborative document management tools.
+      - Developed the kzoomakers.org website utilizing HTML, CSS, and content management systems, aligning
+        site architecture with organizational objectives to effectively increase member engagement and
+        growth by 600% achieved via tracking signup metrics.
+      - Developed an RFID-based authentication platform integrating Python and React to enforce secure
+        access control for on-site premises and hazardous industrial equipment.
+      - Built automated newsletter distribution system leveraging PHP and robust WordPress plugins to
+        coordinate monthly outreach campaigns for the customer base.
+      - Maintained comprehensive organizational records through enterprise document management systems,
+        establishing audit-ready compliance for state operational requirements.
+    - company: Mezmo
+      position: Site Reliability Engineer
+      location: San Francisco, CA
+      start_date: 2020-06
+      end_date: 2023-01
+      highlights:
+      - Deployed LinkerD Service Mesh across 70 Kubernetes services to enforce full-path mTLS, meeting
+        FedRAMP in-transit encryption standards and reducing audit remediation scope.
+      - Participates in regular code reviews and offers suggestions for performance optimization.
+      - Managed on-prem K8s cluster at Equinox using Kubespray and MetalLB for endpoints management.
+      - Extended internal DevEx CLI to expose observability endpoints via self-service commands, reducing
+        platform support requests and improving operational independence for N engineering teams.
+      - Designed and implemented a Flask-based support portal with RBAC and Okta-integrated OIDC, enforcing
+        least-privilege access to Redis and MongoDB workloads.
+    - company: Doximity
+      position: Platform Engineer
+      location: San Francisco, CA
+      start_date: 2019-05
+      end_date: 2020-05
+      highlights:
+      - Delivered greenfield EKS platform with Terraform/Helm-based automation, enabling scalable, reproducible
+        microservice deployment with integrated Istio service mesh.
+      - Refactored monolithic Terraform codebase into modular components with isolated state and Atlantis-managed
+        CI policies, improving deployment reliability and reducing configuration drift.
+      - Stood up Nexus ECR for handling build artifacts (ruby gems, docker registry) to reduce effects
+        of downtime from upstream artifact providers.
+      - Participated in pair programming and mentored junior engineers to be world-class contributors
+        in Python and Devops.
+      - Developed high-fidelity Sensu checks integrated with telemetry pipelines, enabling alerting on
+        latency, saturation, and error-rate anomalies across core services.
+    - company: BoomTown
+      position: Devops Engineer
+      location: Charleston, SC
+      start_date: 2018-04
+      end_date: 2019-05
+      highlights:
+      - Rotated in 24/7 production on-call for split-platform estate (Windows/Linux); developed and maintained
+        remediation playbooks and autorecovery mechanisms for high-availability operations.
+      - Managed and extended CI/CD workflows across TeamCity and Jenkins, enabling end-to-end pipeline
+        visibility and gated delivery assurance using PowerShell.
+      - Refactored monolithic legacy WordPress stack into Docker Compose-based modular containers using
+        Python-Paver, gulp/yarn integrations, and layered PHP testing harnesses.
+      - Served as SME for AWS service primitives, driving tagging strategy compliance, IAM scoping, and
+        least-cost deployment architecture reviews.
+    - company: Rackspace
+      position: Linux Systems Engineer III
+      location: San Antonio, TX
+      start_date: 2011-03
+      end_date: 2017-10
+      highlights:
+      - Migrated configuration management stack from Puppet2 to Puppet3 (PuppetDB + r10k + Hiera), enabling
+        dynamic environment provisioning and policy-conformant module reuse.
+      - Developed GitOps-based Ansible deployment workflows and firewall rule automation, introducing
+        auditability, version control, and rollback for critical infrastructure ACLs.
+      - Designed, implemented, and maintained CI tooling using Python SDKs for REST-driven deployment
+        orchestration.
+      - Created SDKs abstracting deployment APIs, enabling standardized self-service release operations
+        for developers and platform teams.
+      - Led production cutovers for high-risk identity/authentication infrastructure (multi-node authN
+        clusters, schema-breaking migrations) with zero-impact delivery guarantees.
+    Education:
+    - institution: HarvardX (edX)
+      area: Advanced Coursework in Computer Science and Software Engineering
+      degree: Self-Directed Study
+      location: Online
+      summary: 'Graduate-level computer science: algorithms, databases, statistics, Python, distributed
+        systems.'
+    - institution: MIT OpenCourseWare
+      area: Self-Directed Study in Graduate-Level Computer Science
+      degree: Self-Directed Study
+      location: ocw.mit.edu
+      summary: Introduction to Algorithms (6.006), Operating System Engineering (6.828), Distributed Systems
+        (6.824).
+    Skills:
+    - label: DevOps Tools
+      details: Terraform/HCL, docker-compose, Vagrant, Puppet, SaltStack, Chef
+    - label: CI/CD
+      details: Jenkins, Bamboo, Teamcity, CircleCI, Github Actions, Gitlab
+    - label: Hypervisors
+      details: AWS ec2, XenServer, VMWare ESXSI, KVM, Openstack
+    - label: Skills
+      details: Python, Ansible, Kubernetes, REST Frameworks, HTML(5), CSS(3), Observium, MongoDB, MySQL,
+        Postgres, AWS DynamoDB, Docker, Linux, Nginx, Apache, JSON, XML, Bootstrap Framework, SMTP, DNS,
+        Wordpress, Git (SCM), Postfix, Nagios, Tomcat, ElasticSearch, Redis, Zabbix, Networking, Ruby,
+        Sensu, PHP, JQuery, C/C++, Java, Golang, Oracle, Javascript
+    Code Portfolio:
+    - name: '[demo-jenkins-config-as-code](https://github.com/jondkelley/demo-jenkins-config-as-code)'
+      summary: A showcase of Jenkins configurations and job creation out of the box. Using groovy and
+        the configuration as code plugin, you can create fully viable Jenkins instances on docker.
+    - name: '[python_resume](https://github.com/jondkelley/python_resume)'
+      summary: A showcase of Python/Flask/Jinja2/HTML(5)/Bootstrap/JQuery used to both generate jon-kelley.com
+        and my hardcopy resume.
+    - name: '[logdna_line_export_cli](https://github.com/jondkelley/logdna_line_export_cli)'
+      summary: This command will recursively fetch all logs from the logdna export API. This is useful
+        to get logs beyond the 10,000 line limit as the API does not natively provide pagination.
+    - name: '[rebrow_modernized](https://github.com/jondkelley/rebrow-modernized)'
+      summary: Built for the Python developer who needs to look into a Redis store. Allows for inspection
+        and deletion of keys and follows PubSub messages. Also displays some runtime and configuration
+        information.
+    - name: '[carphunter](https://github.com/jondkelley/carphunter)'
+      summary: Simple tool to locate Cisco IP/ARP and display results. Useful for small to medium datacenters
+        (1-100 network devices)
+    - name: '[zabbix_api_monitor](https://github.com/jonkelleyatrackspace/zabbix_url_monitor)'
+      summary: This was created to monitor HTTP / REST Endpoints under Zabbix.
+    - name: '[canakit1104-api](https://github.com/jonkelleyatrackspace/canakit1104-api)'
+      summary: This was created to expose a REST API for a relay board microcontroller so we could build
+        light-based alerting systems while at Rackspace.
+    - name: '[testVapi](https://github.com/jonkelleyatrackspace/testvapi)'
+      summary: Based on the python behave features this project emulates a cucumber style syntax to run
+        HTTP API tests and is able to forward the messages to ELK stack. This uses a language called Gherkin
+        to make plain-english QA testing a breeze.
+    - name: '[vagrantfile-skel](https://github.com/jondkelley/vagrantfile-skel)'
+      summary: I made this repo because I keep encountering quick environments setup / breakfix I need
+        from time to time.

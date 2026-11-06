@@ -16,6 +16,8 @@ from uuid import uuid4
 import io
 import jinja2
 import markdown
+import yaml
+from myresume.sharedlib.rendercv import to_rendercv
 import mimetypes
 import urllib.request
 
@@ -193,6 +195,18 @@ def resume_markdown_theme(theme='3'):
     header = f"<head><title>⭐{resume['profile']['first_name']} {resume['profile']['last_name']} Resume - Markdown Render</title>{stylesheet}</head>"
     preface = '<p><strong><em>Click <a href="/resume.md/">here</a> for raw markdown.</em></strong></p>'
     return f'{header}\n\n{preface}{html_body}'
+
+
+@myresume.route('/resume.yaml')
+def resume_yaml():
+    """
+    resume as a RenderCV document, consumed by the rendercv sidecar
+    """
+    cv = ResumeSingleton.get_instance()
+    response = make_response(yaml.safe_dump(
+        to_rendercv(cv.resume), sort_keys=False, allow_unicode=True, width=100), 200)
+    response.mimetype = "text/plain"
+    return response
 
 
 @myresume.route('/resume.json')

@@ -96,6 +96,8 @@ helm uninstall python-resume --namespace resume-demo
 | `image.resume.tag` | Resume app tag | `latest` |
 | `image.pandoc.repository` | Pandoc sidecar image | `jondkelley/pandoc_resume` |
 | `image.pandoc.tag` | Pandoc sidecar tag | `latest` |
+| `image.rendercv.repository` | RenderCV sidecar image (PDF + HTML) | `jondkelley/rendercv_resume` |
+| `image.rendercv.tag` | RenderCV sidecar tag | `latest` |
 | `service.type` | Service type | `NodePort` |
 | `service.nodePort` | Fixed NodePort (optional) | `null` |
 | `resumeUpdateSecret` | Secret for resume update API | `changeme` |

@@ -12,6 +12,10 @@ image:
     repository: jondkelley/pandoc_resume
     tag: latest
     pullPolicy: IfNotPresent
+  rendercv:
+    repository: jondkelley/rendercv_resume
+    tag: latest
+    pullPolicy: IfNotPresent
 
 # For minikube/kind with locally built images, use:
 #   image.resume.pullPolicy: Never
@@ -44,6 +48,7 @@ service:
 resources:
   resume: {}
   pandoc: {}
+  rendercv: {}
 
 nodeSelector: {}
 tolerations: []

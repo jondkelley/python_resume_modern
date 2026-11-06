@@ -222,7 +222,7 @@ You can visit http://127.0.0.1:12345 to use the application.
 
 ### Local install
 
-Always an option, but the pandoc container won't work with this, so the hard-copy resume links will throw errors.
+Always an option, but the pandoc container won't work with this, so the hard-copy resume links will throw errors (this applies to the RenderCV container too).
 
     git clone https://github.com/jondkelley/python_resume.git
     cd python_resume
@@ -252,4 +252,15 @@ This Resume was inspired by an interactive dynamic resume created by web designe
 
 I ported his PHP / bootstrap framework over to Python / Flask / Jinja2, with my own inspiration along the way. Then I Dockerized my project and made it work on my bare metal kubernetes cluster using emptyDir volumes and MetalLB for load balancing. Docker-compose is available for local development and running the unit tests.
 
-The container is built using a sidecar running pandoc in a bash loop, and uses the emptyDir volume to make various rendered resume formats (every 10 seconds) available to the Flask webserver.
+The PDF and HTML resumes are rendered by a [RenderCV](https://github.com/rendercv/rendercv) sidecar (`rendercv-sidecar/`) from `/resume.yaml`, a RenderCV document that Flask generates from `resume.json` (`myresume/sharedlib/rendercv.py`), so live updates flow through to it. All other formats are made by a sidecar running pandoc in a bash loop, and uses the emptyDir volume to make various rendered resume formats (every 10 seconds) available to the Flask webserver.
+
+## RenderCV document
+
+`resume.yaml` in this repo is `resume.json` converted to [RenderCV](https://github.com/rendercv/rendercv)'s YAML format. `resume.json` stays the source of truth (the website templates read it); regenerate the YAML after editing it:
+
+```bash
+PYTHONPATH=. python scripts/json_to_rendercv.py resume.json > resume.yaml
+pip install "rendercv[full]" && rendercv render resume.yaml   # local PDF/HTML/Markdown/PNG
+```
+
+The running app serves the same conversion at `/resume.yaml`. To change the look, add a `design:` section (e.g. `theme: moderncv`) in `myresume/sharedlib/rendercv.py`'s output; see the RenderCV docs for themes.
